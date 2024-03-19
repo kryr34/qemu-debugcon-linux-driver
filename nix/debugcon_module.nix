@@ -7,13 +7,14 @@
   # The Linux kernel Nix package for which this module is compiled.
 , kernel
 , stdenv
+, srcPath
 }:
 
 stdenv.mkDerivation rec {
   pname = "qemu-debugcon-driver";
   version = "0.1";
 
-  src = gitignoreSource ../src;
+  src = gitignoreSource srcPath;
 
   setSourceRoot = ''
     export sourceRoot=$(pwd)/source
